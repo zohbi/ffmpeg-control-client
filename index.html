@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>zohbi/ffmpeg-control-client @ GitHub</title>
+	
+	<style type="text/css">
+		body {
+  		margin-top: 1.0em;
+  		background-color: #0dc3ba;
+		  font-family: "helvetica"; 
+  		color: #000000;
+    }
+    #container {
+      margin: 0 auto;
+      width: 700px;
+    }
+		h1 { font-size: 3.8em; color: #f23c45; margin-bottom: 3px; }
+		h1 .small { font-size: 0.4em; }
+		h1 a { text-decoration: none }
+		h2 { font-size: 1.5em; color: #f23c45; }
+    h3 { text-align: center; color: #f23c45; }
+    a { color: #f23c45; }
+    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
+    .download { float: right; }
+		pre { background: #000; color: #fff; padding: 15px;}
+    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
+    .footer { text-align:center; padding-top:30px; font-style: italic; }
+	</style>
+	
+</head>
+
+<body>
+  <a href="http://github.com/zohbi/ffmpeg-control-client"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+  
+  <div id="container">
+
+    <div class="download">
+      <a href="http://github.com/zohbi/ffmpeg-control-client/zipball/master">
+        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
+      <a href="http://github.com/zohbi/ffmpeg-control-client/tarball/master">
+        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
+    </div>
+      
+    <h1><a href="http://github.com/zohbi/ffmpeg-control-client">ffmpeg-control-client</a> 
+      <span class="small">by <a href="http://github.com/zohbi">zohbi</a></span></h1>
+
+    <div class="description">
+      The is the client program that send the parameters to server
+    </div>
+
+    <p>#!/usr/bin/env python
+import dbus
+
+service = "ch.cett.misse.ffmpeg"
+ffmpeg = dbus.Interface(dbus.SessionBus().get_object(service,"/"), service)
+print 'Available commands are: \n'
+print '1- start \n'
+print '2- stop \n'
+print '3- image_size_set \n'
+print '4- image_size_get \n'
+print '5- image_rate_set \n'
+print '6- image_rate_get \n'
+print '7- bit_rate_set \n'
+print '8- bit_rate_get \n'
+print '9- client_ip_set \n'
+print '10- client_ip_get \n'
+
+while True:
+ x = int(raw_input("enter the number of the command: "))
+ if x < 1:
+      exit()
+ elif x == 1:
+      print ffmpeg.start()
+ elif x == 2:
+      ffmpeg.stop()
+ elif x == 3:
+      print ffmpeg.image_size_set(640, 480)
+ elif x == 4:
+      print ffmpeg.image_size_get()
+ elif x == 5:
+      print ffmpeg.image_rate_set(15)
+ elif x == 6:
+      print ffmpeg.image_rate_get()
+ elif x == 7:
+      print ffmpeg.bit_rate_set (512)
+ elif x == 8:
+      print ffmpeg.bit_rate_get()
+ elif x == 9:
+      print ffmpeg.client_ip_set('10.156.0.12')
+ elif x == 10:
+      print ffmpeg.client_ip_get()
+
+ else:
+      print 'invalid'
+
+</p><h2>Dependencies</h2>
+<p>The server must be started before</p>
+<h2>Authors</h2>
+<p> Anas El Zouebi</p>
+<h2>Contact</h2>
+<p> (anas.lbn@gmail.com)<br/>      </p>
+
+
+    <h2>Download</h2>
+    <p>
+      You can download this project in either
+      <a href="http://github.com/zohbi/ffmpeg-control-client/zipball/master">zip</a> or
+      <a href="http://github.com/zohbi/ffmpeg-control-client/tarball/master">tar</a> formats.
+    </p>
+    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
+      by running:
+      <pre>$ git clone git://github.com/zohbi/ffmpeg-control-client</pre>
+    </p>
+      
+    <div class="footer">
+      get the source code on GitHub : <a href="http://github.com/zohbi/ffmpeg-control-client">zohbi/ffmpeg-control-client</a>
+    </div>
+    
+  </div>
+
+  
+</body>
+</html>
